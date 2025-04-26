@@ -28,7 +28,6 @@ func main() {
 func handleExchangeRate(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
-	// Context for external API call (200ms timeout)
 	ctxAPI, cancelAPI := context.WithTimeout(ctx, 200*time.Millisecond)
 	defer cancelAPI()
 
@@ -54,7 +53,6 @@ func handleExchangeRate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Context for database write (10ms timeout)
 	ctxDB, cancelDB := context.WithTimeout(ctx, 10*time.Millisecond)
 	defer cancelDB()
 

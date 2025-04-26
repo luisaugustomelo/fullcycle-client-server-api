@@ -12,7 +12,6 @@ import (
 )
 
 func main() {
-	// Context for server response (300ms timeout)
 	ctx, cancel := context.WithTimeout(context.Background(), 300*time.Millisecond)
 	defer cancel()
 
